@@ -1,3 +1,6 @@
+
+// program to find xor of two binary numbers.
+
 #include<iostream>
 using namespace std;
 
