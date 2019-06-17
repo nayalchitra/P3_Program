@@ -1,8 +1,7 @@
 
 // print all prime numbers from 1 to n
 
-
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
 
 
@@ -15,9 +14,9 @@ void Print_prime(int n)
 	{
 		if(prime[i])
 		{
-			for(j=i*i;j<=n;j++)
+			for(j=i*i;j<=n;j=j+i)
 			{
-				prime[i]=false;
+				prime[j]=false;
 			}
 		}
 	}
