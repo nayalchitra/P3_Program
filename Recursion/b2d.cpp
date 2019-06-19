@@ -1,3 +1,4 @@
+
 //binary to decimal conversion
 
 #include<iostream>
