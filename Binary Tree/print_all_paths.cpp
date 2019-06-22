@@ -18,10 +18,12 @@ void print_path(node *root,int i,char s[])
 		cout<<s<<endl;
 		return ;
 	}
-	//if(s[i]!=root->data)
+	
 	s[i]=root->data+'0';
-	print_path(root->left,i+1,s);
-	print_path(root->right,i+1,s);
+	if(root->left!=NULL)
+		print_path(root->left,i+1,s);
+	if(root->right!=NULL)
+		print_path(root->right,i+1,s);
 }
 
 int main()
