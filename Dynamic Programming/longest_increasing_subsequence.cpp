@@ -23,18 +23,14 @@ int main()
 	int L[n+1];
 	
 	L[0]=1;
-	for(int i=0;i<n;i++)
+	for(int i=1;i<n;i++)
 	{
 		L[i]=1;
-		int max=a[0];
-		int index=0;
 		for(int j=0;j<i;j++)
 		{
-			if(a[j]<a[i] && a[j]>=max)
+			if(a[i] > a[j] && L[i] < L[j] + 1)
 			{
-				max=a[j];
-				index=j;
-				L[i]=L[index]+1;
+				L[i]=L[j]+1;
 			}
 		}
 	}
