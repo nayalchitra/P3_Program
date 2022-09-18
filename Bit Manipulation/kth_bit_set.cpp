@@ -1,5 +1,5 @@
 
-// check if the kth bit of a  number is set
+// check if the kth bit of a number is set
 
 #include<iostream>
 using namespace std;
