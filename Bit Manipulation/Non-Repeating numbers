@@ -1,0 +1,80 @@
+// Given an array A containing 2*N+2 positive numbers, out of which 2*N numbers exist in pairs whereas the other two number occur
+// exactly once and are distinct. Find the other two numbers. Return in increasing order.
+
+/*
+
+  N = 2
+  arr[] = {1, 2, 3, 2, 1, 4}
+  
+  o/p : 3,4
+*/
+
+// Method 1 : using bits manipulation
+
+#include<bits/stdc++.h>
+using namespace std;
+
+vector<int> singleNumber(vector<int> nums) 
+{
+    // Code here.
+    int x = 0, y = 0;
+    int xor_ = 0;
+    for(int i = 0; i < nums.size(); i++)
+        xor_ = xor_ ^ nums[i];
+
+    int right_most = xor_ & ~(xor_ - 1);
+
+    for(int i = 0; i < nums.size(); i++)
+    {
+        if(nums[i] & right_most)
+            x = x ^ nums[i];
+        else
+            y = y ^nums[i];
+    }
+
+    if( x > y)
+        swap(x, y);
+    return {x,y};
+}
+
+int main()
+{
+    int n = 2;
+    vector<int> nums = {1, 2, 3, 2, 1, 4};
+    
+    vector<int> ans = singleNumber(nums);
+    
+    for(int i = 0;  i< ans.size(); i++)
+        cout<< ans[i] <<" ";
+}
+
+
+
+
+// method 2: using map
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int n;
+    cin>> n;
+    int arr[2*n +2];
+    for(int i = 0; i < 2*n +2; i++)
+    {
+        cin>>arr[i];
+    }
+    
+    map<int,int> mp;
+    for(int i = 0 ; i< 2*n + 2; i++)
+      mp[arr[i]] ++;
+    vector<int> ans;
+    for(auto i = mp.begin(); i != mp.end(); i++)
+    {
+        if((i->second) %2 != 0)
+            ans.push_back(arr[i]);
+    }
+    for(int i = 0 ;i < ans.size(); i++)
+        cout<<ans[i] <<" ";
+}
