@@ -1,6 +1,6 @@
 // using Bit manipulation
 
-#include<bits.stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
 
 int main()
@@ -22,10 +22,10 @@ int main()
 }
 
 
+/*
 
-
-// using mathematics
-#include<bits.stdc++.h>
+// Method 2: using mathematics
+#include<bits/stdc++.h>
 using namespace std;
 
 int main()
@@ -41,3 +41,4 @@ int main()
   cout<< "misisng number is " << sum <<endl;
   
 }
+*/
