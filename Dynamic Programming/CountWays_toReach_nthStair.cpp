@@ -45,8 +45,8 @@ int countWays(int n)
 
 int main()
 {
-    int n;
-    cin >> n;
+    int n = 2;
+    
     cout << countWays(n);
     return 0;
 }
