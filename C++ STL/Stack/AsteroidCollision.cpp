@@ -20,3 +20,56 @@ Your Task:
 You don't need to read input or print anything. Your task is to complete the function asteroidCollision() which takes the array of integers asteroids and N as parameters and returns the state of asteroids after all collisions.
 */
 
+#include<bits/stdc++.h>
+using namespace std;
+
+class Solution{
+  public:
+    vector<int> asteroidCollision(int N, vector<int>&asteroids)
+    {
+      stack<int> stk;
+      for(int i = 0; i < N; i++)
+      {
+        bool flag = false;
+        while(!stk.empty() and stk.top() >0 and asteroids[i] > 0){
+          if(stk.top() >= abs(asteroids[i]){
+            flag = true;
+            if(stk.top() == abs(asteroids[i]))
+              stk.pop();
+            break;
+          }
+          else{
+            stk.pop();
+          }
+        }
+        if(!flag)
+          stk.push(asteroids[i]);
+      }
+      vector<int> ans;
+      while(!stk.empty()){
+          ans.push_back(stk.top());
+          stk.pop();
+      }
+      reverse(ans.begin(),ans.end());
+      return ans;
+    }
+};
+
+int main()
+{
+    int t;
+    cin >> t;
+    while(t--){
+        int N;
+        cin >> N;
+        vector<int> asteroids(N);
+        for(int i = 0; i < N; i++)
+          cin >> asteroids[i];
+        Solution obj;
+        vector<int> ans = obj.asteroidCollision(N,asteroids);
+        for(auto &it : ans)
+          cout << it << ' ';
+        cout <<endl;
+    }
+    return 0;
+}
